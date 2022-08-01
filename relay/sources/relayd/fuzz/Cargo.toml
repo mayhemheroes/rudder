@@ -7,22 +7,17 @@ publish = false
 [package.metadata]
 cargo-fuzz = true
 
-[dependencies.relayd]
+[dependencies.rudder-relayd]
 path = ".."
 [dependencies.libfuzzer-sys]
-git = "https://github.com/rust-fuzz/libfuzzer-sys.git"
+version = "0.4"
 
 # Prevent this from interfering with workspaces
 [workspace]
 members = ["."]
 
-[[bin]]
-name = "report"
-path = "fuzz_targets/report.rs"
-
-[[bin]]
-name = "runlog"
-path = "fuzz_targets/runlog.rs"
+[profile.release]
+debug = 1
 
 [[bin]]
 name = "runinfo"

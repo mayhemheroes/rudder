@@ -4,10 +4,10 @@
 #![no_main]
 #[macro_use]
 extern crate libfuzzer_sys;
-extern crate relayd;
+extern crate rudder_relayd;
 
-use relayd::data::RunInfo;
+use rudder_relayd::data::RunInfo;
 
-fuzz_target!(|data: &[u8]| {
-    let _ = std::str::from_utf8(data).map(|x| x.parse::<RunInfo>());
+fuzz_target!(|data: &str| {
+    let _ = data.parse::<RunInfo>();
 });
