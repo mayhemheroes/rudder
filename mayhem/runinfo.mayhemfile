@@ -1,0 +1,7 @@
+project: rudder
+target: runinfo
+
+cmds:
+  - cmd: /runinfo
+  - cmd: /runinfo_no_inst @@
+    libfuzzer: false
